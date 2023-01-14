@@ -1,6 +1,12 @@
 <script>
     import Text from "./Text.svelte";
     import Button from "./Button.svelte";
+    import {sidebarShow} from "../sidebar-store.js";
+
+    function showSidebar(){
+        sidebarShow.set(true)
+        console.log(true)
+    }
 </script>
 <header aria-label="Site Header" class="bg-transparent animate__animated animate__backInDown">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -63,17 +69,13 @@
 
                 <div class="flex items-center gap-4">
                     <div class="sm:flex sm:gap-4 hidden md:block">
-                        <a
-                                href="/"
-                        >
-                            <Button text="Hire me!"/>
-                        </a>
+                        <Button text="Hire me!" action="{showSidebar}"/>
                     </div>
 
                     <div class="block md:hidden">
                         <button
                                 class="rounded bg-[#22A39F] p-2 text-white transition active:shadow-md active:shadow-[#22A39F]"
-                        >
+                        on:click={showSidebar}>
                             <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     class="h-5 w-5"
