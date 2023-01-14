@@ -11,10 +11,12 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.0",
     "autoprefixer": "^10.4.7",
+    "flowbite-svelte": "^0.29.10",
     "postcss": "^8.4.14",
     "postcss-load-config": "^4.0.1",
     "svelte": "^3.54.0",
     "svelte-preprocess": "^4.10.7",
+    "svelthree": "^0.119.0-5",
     "tailwindcss": "^3.1.5",
     "vite": "^4.0.0"
   },
