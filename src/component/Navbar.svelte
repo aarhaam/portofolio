@@ -1,15 +1,34 @@
 <script>
+
+    import {Link} from "svelte-routing";
+
     import Text from "./Text.svelte";
     import Button from "./Button.svelte";
-    import {sidebarShow} from "../sidebar-store.js";
+    import {drawerShow} from "../state/drawer-store.js";
+    import {darkmode} from "../state/darkmode-store.js";
 
-    function showSidebar(){
-        sidebarShow.set(true)
-        console.log(true)
+    let isDarkMode;
+
+    function showDrawer(){
+        drawerShow.set(true)
+    }
+
+    function setDarkMode(){
+        darkmode.subscribe(value => {
+            isDarkMode = value
+        })
+
+        darkmode.set(!isDarkMode)
+
+        if(isDarkMode){
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
     }
 </script>
-<header aria-label="Site Header" class="bg-transparent animate__animated animate__backInDown">
-    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+<header aria-label="Site Header" class="bg-transparent dark:bg-slate-900 ">
+    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 animate__animated animate__backInDown">
         <div class="flex h-16 items-center justify-between">
             <div class="flex-1 md:flex md:items-center md:gap-12">
                 <a class="block font-bold" href="/">
@@ -21,21 +40,15 @@
                 <nav aria-label="Site Nav" class="hidden md:block">
                     <ul class="flex items-center gap-6 text-sm">
                         <li>
-                            <a
-                                    class="text-gray-500 transition hover:text-gray-500/75"
-                                    href="/"
-                            >
+                            <Link to="/">
                                 <Text content="About"/>
-                            </a>
+                            </Link>
                         </li>
 
                         <li>
-                            <a
-                                    class="text-gray-500 transition hover:text-gray-500/75"
-                                    href="/"
-                            >
+                            <Link to="/portfolio">
                                 <Text content="Careers"/>
-                            </a>
+                            </Link>
                         </li>
 
                         <li>
@@ -69,13 +82,13 @@
 
                 <div class="flex items-center gap-4">
                     <div class="sm:flex sm:gap-4 hidden md:block">
-                        <Button text="Hire me!" action="{showSidebar}"/>
+                        <Button text="Hire me!" action="{setDarkMode}"/>
                     </div>
 
                     <div class="block md:hidden">
                         <button
                                 class="rounded bg-[#22A39F] p-2 text-white transition active:shadow-md active:shadow-[#22A39F]"
-                        on:click={showSidebar}>
+                        on:click={showDrawer}>
                             <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     class="h-5 w-5"

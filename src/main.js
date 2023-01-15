@@ -1,5 +1,5 @@
 import "./app.postcss";
-import App from "./pages/App.svelte";
+import App from "./App.svelte";
 import 'animate.css'
 
 const app = new App({

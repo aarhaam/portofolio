@@ -3,4 +3,4 @@
 </script>
 
 
-<p class="bg-transparent text-[#222222]">{content}</p>
+<p class="bg-transparent text-[#222222] dark:text-white">{content}</p>
