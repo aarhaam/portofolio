@@ -10,7 +10,7 @@
             Hello, I'm Mahardika....
         </h2>
     </div>
-    <p class="mt-1 text-lg typewriter-section font-normal">Frontend Engineer</p>
+    <p class="mt-1 text-lg typewriter-section font-normal text-black dark:text-white">Frontend Engineer</p>
 </main>
 
 
